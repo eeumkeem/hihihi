@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <header>EventListener Example 01</header>
+    <meta name="viewport" content="width+device-width, initial-sacle = 1.0">
+    <style>
+        html{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    
+        header{
+            font-size: 2rem;
+        }
+        
+        .stamp > div {
+            position: fixed;
+            font-size: 4rem;
+            text-shadow: rgb(187, 187, 187) 1px 0 30px;
+        }
+
+        /* nth-child 스타일 */
+        .stamp > div:nth-child(1) {
+            font-size: 6rem;
+            top: 25vh;
+            left: 18vw;
+        }
+
+        .stamp > div:nth-child(2) {
+            font-size: 12rem;
+            top: 30vh;
+            left: 60vw;
+        }
+
+        .stamp > div:nth-child(3) {
+            top: 65vh;
+            left: 8vw;
+        }
+
+        </style>
+
+</head>
+
+    <body>
+    <div class="stamp">
+        <div>🗿</div>
+        <div>🗿</div>
+        <div>🗿</div>
+   </div>
+
+   <script>
+    function addEmoji(e) {
+        const div = document.createElement ("div");
+        div.innerText = "🗿";
+        div.style.fontSize = `${Math.random() * 8 + 2}rem`
+            div.style.top = `calc(${e.y}px - 0.7em)`;
+            div.style.left = `calc(${e.x}px - 0.5em)`;
+
+        document.querySelector(".stamp").appendChild(div);
+    }
+    window.addEventListener ("click", addEmoji);
+    function addEmoji(e) {
+            const emojis = ["🗿", "🌈", "🔥", "💧", "🍀", "🌟", "🌍", "🐱", "🌸", "🍎"];
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+            const div = document.createElement("div");
+            div.innerText = randomEmoji; // 무작위 이모지 설정
+            div.style.fontSize = `${Math.random() * 8 + 2}rem`;
+            div.style.top = `calc(${e.y}px - 0.7em)`;
+            div.style.left = `calc(${e.x}px - 0.5em)`;
+
+            document.querySelector(".stamp").appendChild(div);
+        }
+        
+        window.addEventListener("click", addEmoji);
+   </script>
+
+  </body>
+</html>
